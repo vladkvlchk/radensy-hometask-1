@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="styles.css">
+        <title>hometask #1</title>
+    </head>
+    <body>
+        <div class="app">
+            <div class="table">
+                <div class="nameOfTable">All</div>
+                <div class="titles">
+                    <p class="titleSmall"></p>
+                    <p class="titleBig">Name</p>
+                    <p class="titleMiddle">Created</p>
+                    <p class="titleMiddle">Category</p>
+                    <p class="titleMiddle">Content</p>
+                    <p class="titleBig">Dates</p>
+                    <p class="titleMiddle">Actions</p>
+                </div>
+                <div class="items" id="allItems">
+                </div>
+                <button id="addItemBtn" class="addItemBtn">Create Note</button>
+                <div class="modal">
+                    <div class="modalHead">
+                        <h3>create note</h3>
+                    </div>
+                    <div class="modalBody">
+                        <form>
+                            <label for="name">Name:</label>
+                            <input id="nameInForm" type="text" name="name">
+                            <label for="category">Category:</label>
+                            <select id="categoryInForm" name="category">
+                                <option value="Task">Task</option>
+                                <option value="Random Thought">Random Thought</option>
+                                <option value="Idea">Idea</option>
+                                <option value="Quote">Quote</option>
+                            </select>
+                            <label for="content">Content:</label>
+                            <textarea id="contentInForm" type="text" name="content"></textarea>
+                        </form>
+                        <button id="btnSaveItem">Save</button>
+                    </div>
+                </div>
+                <div id="overlay"></div>
+            </div>
+            <div class="table tableSummary">
+                <div class="nameOfTable">Summary</div>
+                <div class="titles">
+                    <p class="titleSmall"></p>
+                    <p class="titleBig">Note category</p>
+                    <p class="titleBig"></p>
+                    <p class="titleMiddle">Active</p>
+                    <p class="titleMiddle">Archived</p>
+                </div>
+                <div class="items" id="summary">
+                </div>
+            </div>
+            <div class="table">
+                <div class="nameOfTable">Archive</div>
+                <div class="titles titlesArchive">
+                    <p class="titleSmall"></p>
+                    <p class="titleBig">Name</p>
+                    <p class="titleMiddle">Created</p>
+                    <p class="titleMiddle">Category</p>
+                    <p class="titleMiddle">Content</p>
+                    <p class="titleBig">Dates</p>
+                    <p class="titleMiddle">Actions</p>
+                </div>
+                <div class="items" id="archives">
+                </div>
+            </div>
+        </div>
+        <script src="bundle.js"></script>
+    </body>
+</html>
