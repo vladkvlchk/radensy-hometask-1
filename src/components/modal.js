@@ -1,11 +1,9 @@
 import render from '../index.js'
 import { items } from "../data/data.js";
 
-
 const modal = document.querySelector('.modal');
 const overlay = document.getElementById('overlay');
 const btnSaveItem = document.getElementById('btnSaveItem');
-
 
 export const openModal = () => {
     overlay.classList.add('active');
