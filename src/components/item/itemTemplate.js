@@ -3,23 +3,23 @@ const ideaUrl = './media/icons/idea.svg';
 const randomThoughtUrl = './media/icons/randomThought.svg';
 const quoteUrl = './media/icons/quote.svg';
 
-export const itemTemplate = ({id, name, created, category, content, dates}) => {
+const itemTemplate = ({id, name, created, category, content, dates}) => {
     const imageUrl = category === "Task" ? taskUrl :
                     category === "Idea" ? ideaUrl :
                     category === "Random Thought" ? randomThoughtUrl :
-                    category === "Quote" ? quoteUrl : '';
+                    category === "Quote" ? quoteUrl : false;
 
     return `
     <div class="item">
         <div class="titleSmall">
             <div class="itemImage">
-                <img src="${imageUrl}">            
+                ${imageUrl ? `<img src="${imageUrl}">` : ''}            
             </div>
         </div>
-        <div class="titleBig">${name}</div>
+        <div class="titleBig">${name ? name : '[no name]'}</div>
         <div class="titleMiddle">${created}</div>
         <div class="titleMiddle">${category}</div>
-        <div class="titleMiddle">${content}</div>
+        <div class="titleMiddle">${content ? content : '[no content]'}</div>
         <div class="titleBig">${dates.join(', ')}</div>
         <div class="titleMiddle">
             <div class="actions">
@@ -36,3 +36,5 @@ export const itemTemplate = ({id, name, created, category, content, dates}) => {
         </div>
     </div>`
 }
+
+export default itemTemplate
