@@ -52,7 +52,7 @@ export let items = [
         name: 'Motivation',
         created: '31/5/2022',
         category: 'Quote',
-        constent: "The World belongs to those who show up",
+        content: "The World belongs to those who show up",
         dates: []
     }
 ];
@@ -63,7 +63,7 @@ export let archive = [
         name: 'George C. Marshall',
         created: '30/7/2022',
         category: 'Quote',
-        constent: "Don't look back. Look forward to your next objective",
+        content: "Don't look back. Look forward to your next objective",
         dates: []
     }
 ];
@@ -85,12 +85,12 @@ export const unarchiveItem = (id) => {
 export const getSummaries = () => {
     const summaries = [];
 
-    sumOfCateg("Task");
-    sumOfCateg("Random Thought");
-    sumOfCateg("Idea");
-    sumOfCateg("Quote");
+    sumOfCategory("Task");
+    sumOfCategory("Random Thought");
+    sumOfCategory("Idea");
+    sumOfCategory("Quote");
 
-    function sumOfCateg(category){
+    function sumOfCategory(category){
         const active = items.reduce((count, current) => {
             return current.category === category ? count + 1 : count
         }, 0);

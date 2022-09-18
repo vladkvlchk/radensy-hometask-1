@@ -14,7 +14,7 @@ const render = () => {
     archives.innerHTML = archive.map(obj => archiveTemplate(obj)).join('');
     summary.innerHTML = getSummaries().map(obj => summaryTemplate(obj)).join('');
 
-    //addind event listeners
+    //adding event listeners
     addListenersForItems();
     addItemBtn.addEventListener('click', () => openModal()); 
 }

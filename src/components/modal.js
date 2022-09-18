@@ -26,8 +26,8 @@ export const onClickBtnSaveItem = () => {
         const category = document.getElementById('categoryInForm').value;
         const content = document.getElementById('contentInForm').value;
         const date = new Date();
-        const created = `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`;
-        const id = Math.floor(Math.random() * 10000);
+        const created = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`;
+        const id = Math.floor(Math.random() * 1000000);
         const dates = [];
         
         for(let i = 0; i < content.length; i++){// looking for dates
@@ -38,12 +38,24 @@ export const onClickBtnSaveItem = () => {
                 i += match.index + 7;
             } else { break }
         }
-        
-        items.push({id, name, created, category, content, dates});
-        render();
-        closeModal();
+
+        if(validationNewNote({id, name, content})){
+            items.push({id, name, created, category, content, dates});
+            render();
+            closeModal();
+        } else {
+            alert("Invalid note!");
+        }
     } catch(e){
         alert("Can't save this note");
         console.log(e);
     }
+}
+
+function validationNewNote({id, name, content}){
+    if(items.find(obj => obj.id === id)) return false
+    if(!name) return false
+    if(!content) return false
+
+    return true
 }
